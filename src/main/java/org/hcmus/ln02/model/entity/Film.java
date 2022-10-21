@@ -1,8 +1,6 @@
 package org.hcmus.ln02.model.entity;
 
 import java.time.LocalDateTime;
-import java.time.Year;
-import java.util.Objects;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;

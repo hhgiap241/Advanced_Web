@@ -8,6 +8,8 @@ import org.hcmus.ln02.service.FilmService;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -24,5 +26,10 @@ public class FilmController extends AbstractApplicationController {
         .map(film -> applicationMapper.toFilmDto(film))
         .collect(Collectors.toList());
     return new ResponseEntity<>(filmDtoList, HttpStatus.OK);
+  }
+  @PostMapping
+  public ResponseEntity<FilmDto> saveFilm(@RequestBody FilmDto filmDto) {
+    FilmDto savedFilmDto = applicationMapper.toFilmDto(filmService.saveFilm(applicationMapper.toFilmEntity(filmDto)));
+    return new ResponseEntity<>(savedFilmDto, HttpStatus.CREATED);
   }
 }

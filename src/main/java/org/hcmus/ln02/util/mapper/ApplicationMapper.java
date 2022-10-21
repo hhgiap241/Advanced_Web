@@ -58,7 +58,6 @@ public class ApplicationMapper {
       return null;
     }else{
       Film film = new Film();
-      film.setFilmId(filmDto.getFilmId());
       film.setTitle(filmDto.getTitle());
       film.setDescription(filmDto.getDescription());
       film.setReleaseYear(filmDto.getReleaseYear());
